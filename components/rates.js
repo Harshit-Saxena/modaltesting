@@ -2,9 +2,8 @@
 import useSWR from "swr";
 
 const fetchCurrencyRates = (currencyCode) =>
-  fetch(`http://localhost:3001/api/rates?currencyCode=${currencyCode}`
+  fetch(`${window.location.origin}/api/rates?currencyCode=${currencyCode}`
   ).then((response) => response.json());
-
 export default function Rates({ currencyCode }) {
   const { data, error } = useSWR(currencyCode, fetchCurrencyRates);
 
